@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>我的個人網頁</title>
+  <style>
+    /* ===== 基本樣式 ===== */
+    body {
+      font-family: "Noto Sans TC", sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f6f8;
+      color: #333;
+      line-height: 1.6;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    h1,
+    h2 {
+      color: #053574;
+      margin-bottom: 10px;
+      transition: color 0.3s ease;
+    }
+
+    a {
+      color: #5dc2db;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* ===== 頂部區塊 ===== */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 900px;
+      margin: 40px auto 20px;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(17, 4, 202, 0.575);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .header .info {
+      flex: 1;
+      margin-right: 20px;
+    }
+
+    .header h1 {
+      font-size: 2em;
+      margin-bottom: 5px;
+    }
+
+    .header p {
+      font-size: 1.1em;
+      color: #555555;
+      transition: color 0.3s ease;
+    }
+
+    .header img {
+      border-radius: 10px;
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(195, 201, 207, 0.452);
+      transition: box-shadow 0.3s ease;
+    }
+
+    /* ===== 內容區塊 ===== */
+    section {
+      background: white;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    section li {
+      background: #f8f9fb;
+      padding: 10px 15px;
+      margin: 8px 0;
+      border-radius: 6px;
+      transition: background-color 0.3s ease;
+    }
+
+    footer {
+      text-align: center;
+      margin: 40px 0 20px;
+      color: #c59c9c;
+      font-size: 0.9em;
+      transition: color 0.3s ease;
+    }
+
+    /* ===== 深色模式 ===== */
+    body.dark {
+      background-color: #ddbcbc;
+      color: #ddd;
+    }
+
+    body.dark h1,
+    body.dark h2 {
+      color: #0bd3d3;
+    }
+
+    body.dark a {
+      color: #8fda52;
+    }
+
+    body.dark a:hover {
+      text-decoration: underline;
+    }
+
+    body.dark .header,
+    body.dark section {
+      background: #1e1e1e;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.7);
+    }
+
+    body.dark .header p {
+      color: #bbb;
+    }
+
+    body.dark section li {
+      background: #2a2a2a;
+    }
+
+    body.dark footer {
+      color: #aaa;
+    }
+
+    body.dark .header img {
+      box-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+    }
+
+    /* ===== 響應式 ===== */
+    @media (max-width: 700px) {
+      .header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .header .info {
+        margin-right: 0;
+        margin-bottom: 20px;
+      }
+
+      .header img {
+        width: 120px;
+        height: 120px;
+      }
+    }
+
+    /* ===== 深色模式切換按鈕 ===== */
+    #darkModeToggle {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      background: #1a73e8;
+      border: none;
+      color: white;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 6px rgba(26, 115, 232, 0.7);
+      transition: background-color 0.3s ease;
+      z-index: 1000;
+    }
+
+    #darkModeToggle:hover {
+      background-color: #155ab6;
+    }
+
+    body.dark #darkModeToggle {
+      background: #90caf9;
+      color: #121212;
+      box-shadow: 0 2px 6px rgba(144, 202, 249, 0.9);
+    }
+
+    body.dark #darkModeToggle:hover {
+      background-color: #5d99c6;
+    }
+  </style>
+</head>
+<body>
+  <!-- 深色模式切換按鈕 -->
+  <button id="darkModeToggle" aria-label="切換深色模式">🌙 深色模式</button>
+
+  <!-- 頭像 + 基本資料 -->
+  <div class="header">
+    <div class="info">
+      <h1>王小明</h1>
+      <p>前端工程師｜熱愛學習與分享</p>
+    </div>
+    <img
+      src="https://thispersondoesnotexist.com/"
+      alt="AI 生成的真實人像頭像"
+      loading="lazy"
+    />
+  </div>
+
+  <!-- 關於我 -->
+  <section>
+    <h2>關於我</h2>
+    <p>
+      大家好！我是一名網頁開發者，專注於製作簡潔、實用的網站。
+      喜歡挑戰新技術，並將創意轉化為實際作品。
+    </p>
+  </section>
+
+  <!-- 技能 -->
+  <section>
+    <h2>技能</h2>
+    <ul>
+      <li>💻 HTML / JavaScript</li>
+      <li>⚙️ Node.js</li>
+      <li>🔧 Git / GitHub</li>
+    </ul>
+  </section>
+
+  <!-- 作品 -->
+  <section>
+    <h2>作品</h2>
+    <ul>
+      <li><a href="#">個人部落格</a> — 記錄前端開發心得</li>
+      <li><a href="#">簡易筆記應用</a> — 使用 JavaScript 製作的筆記工具</li>
+    </ul>
+  </section>
+
+  <!-- 聯絡方式 -->
+  <section>
+    <h2>聯絡我</h2>
+    <p>📧 Email: <a href="mailto:xiaoming@example.com">xiaoming@example.com</a></p>
+    <p>🌐 GitHub: <a href="https://github.com/yourusername" target="_blank">yourusername</a></p>
+  </section>
+
+  <footer>© 2025 王小明. All rights reserved.</footer>
+
+  <script>
+    const toggleBtn = document.getElementById("darkModeToggle");
+    // 初始時嘗試讀取用戶偏好（若之前切換過）
+    if (localStorage.getItem("darkMode") === "enabled") {
+      document.body.classList.add("dark");
+      toggleBtn.textContent = "☀️ 淺色模式";
+    }
+
+    toggleBtn.addEventListener("click", () => {
+      document.body.classList.toggle("dark");
+      if (document.body.classList.contains("dark")) {
+        toggleBtn.textContent = "☀️ 淺色模式";
+        localStorage.setItem("darkMode", "enabled");
+      } else {
+        toggleBtn.textContent = "🌙 深色模式";
+        localStorage.setItem("darkMode", "disabled");
+      }
+    });
+  </script>
+</body>
+</html>
